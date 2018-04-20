@@ -1,0 +1,11 @@
+{
+    "name": "giovani.cassiano/crud",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Giovani Cassiano",
+            "email": "giovani.cassiano99@hotmail.com"
+        }
+    ],
+    "require": {}
+}
