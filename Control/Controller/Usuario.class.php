@@ -5,10 +5,15 @@ require_once __DIR__."/../Interfaces/InterfaceCRUD.interface.php";
 require_once __DIR__."/../Model/Usuarios.class.php";
 
 use CRUD\Control\Interfaces\InterfaceCRUD;
+use CRUD\Control\Model\Usuarios as User;
 
 class Usuarios implements InterfaceCRUD
 {
-    public function __construct(){}
+    private $user;
+    public function __construct()
+    {
+
+    }
 
     /**
      * @param $post
@@ -18,8 +23,12 @@ class Usuarios implements InterfaceCRUD
     public function create($post)
     {
         try{
+            $this->user = new User($post->nome,$post->senha,$post->email);
+
             //TODO:: Deve fazer as validações dos valores recebidos por post ou put
-            $result = $this->read(null, $post->email);
+
+            $result = $this->read(null, $this->user->getEmail());
+
             if($result)
                throw new Exception("Email já existe",412);
 
@@ -29,9 +38,9 @@ class Usuarios implements InterfaceCRUD
             $con = new Connection();
             $insert = $con->prepare($sql);
             $array = [
-                ":nome"=>$post->nome,
-                ":email"=>$post->email,
-                ":senha"=>$post->senha
+                ":nome"=>$this->user->getNome(),
+                ":email"=>$this->user->getEmail(),
+                ":senha"=>$this->user->getSenha()
             ];
             if(!$insert->execute($array))
                 throw new \Exception("Não foi possivel inserir usuário",412);
@@ -88,7 +97,10 @@ class Usuarios implements InterfaceCRUD
     public function update($put, $id)
     {
         try{
+            $this->user = new User($put->nome,$put->senha,$put->email);
+
             //TODO:: Deve fazer as validações dos valores recebidos por post ou put
+
             if(!$this->read($id))
                 throw new Exception("Usuário não existe");
 
@@ -103,9 +115,9 @@ class Usuarios implements InterfaceCRUD
             $con = new Connection();
             $insert = $con->prepare($sql);
             $array = [
-                ":nome"=>$put->nome,
-                ":email"=>$put->email,
-                ":senha"=>$put->senha,
+                ":nome"=>$this->user->getNome(),
+                ":email"=>$this->user->getEmail(),
+                ":senha"=>$this->user->getSenha(),
                 ":id"=>$id
             ];
 
@@ -155,6 +167,7 @@ class Usuarios implements InterfaceCRUD
                 else
                     return $result[0];
             }else if (!is_null($email)){
+
                 $sql .= "WHERE email =:email";
                 $con = new Connection();
                 $select = $con->prepare($sql);

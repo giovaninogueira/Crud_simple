@@ -3,17 +3,21 @@
 /**
  * Class Connection
  */
-class Connection extends PDO
+class Connection extends \PDO
 {
     public function __construct()
     {
         try
         {
+            // arquivo de conexão
             $file = __DIR__."/../Config/Database.ini";
+
             if(!file_exists($file))
                 throw new \Exception("Error",500);
 
             $array = \parse_ini_file($file);
+
+            //realizando a conexão
             parent::__construct(
                 'mysql:host='.$array['HOST'].';'.
                 'dbname='.$array['DATABASE'],

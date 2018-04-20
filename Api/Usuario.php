@@ -18,6 +18,9 @@
      */
     date_default_timezone_set('America/Sao_Paulo');
 
+    /**
+     * Controle de request
+     */
     try{
         //recuperando o metodo de request
         $httpMtd = $_SERVER["REQUEST_METHOD"];

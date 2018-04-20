@@ -8,7 +8,12 @@ class Usuarios
     private $senha;
     private $email;
 
-    public function __construct(){}
+    public function __construct($nome, $senha, $email)
+    {
+        $this->setNome($nome);
+        $this->setEmail($email);
+        $this->setSenha($senha);
+    }
 
     public function setNome($nome)
     {
