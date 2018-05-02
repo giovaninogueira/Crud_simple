@@ -4,6 +4,9 @@ require_once __DIR__."/../../Database/Connection.class.php";
 require_once __DIR__."/../Interfaces/InterfaceCRUD.interface.php";
 require_once __DIR__."/../Model/Usuarios.class.php";
 
+/**
+ * Os namespaces apelidos para os arquivos, para não ocorrer o erro de nomes duplicados
+ */
 use CRUD\Control\Interfaces\InterfaceCRUD;
 use CRUD\Control\Model\Usuarios as User;
 
