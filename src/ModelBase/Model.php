@@ -5,7 +5,7 @@ namespace Kernel\ModelBase;
 /**
  * Class Model
  */
-class Model
+abstract class Model
 {
     /**
      * Model constructor.
