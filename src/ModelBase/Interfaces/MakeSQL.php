@@ -2,34 +2,30 @@
 
 namespace Kernel\ModelBase\Interfaces;
 
-/**
- * Interface Crud
- */
-interface Crud
+interface MakeSQL
 {
     /**
      * @return mixed
      */
-    public function save();
+    public function insert();
 
     /**
      * @return mixed
      */
-    public function deleteData();
+    public function update();
 
     /**
      * @return mixed
      */
-    public function updateData();
+    public function select();
 
     /**
      * @return mixed
      */
-    public function find();
+    public function delete();
 
     /**
-     * @param $sql
      * @return mixed
      */
-    public function sql($sql);
+    public function where($name, $operator, $value, $continuos = null);
 }

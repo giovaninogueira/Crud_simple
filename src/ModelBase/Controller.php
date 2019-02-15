@@ -3,39 +3,55 @@
 namespace Kernel\ModelBase;
 
 use Kernel\ModelBase\Interfaces\Crud;
+use Kernel\Database\Connection;
 
-class Controller implements Crud
+abstract class Controller implements Crud
 {
-
     /**
-     * @return mixed|void
+     * Controller constructor.
      */
-    function insert()
+    public function __construct()
     {
-        // TODO: Implement insert() method.
     }
 
     /**
      * @return mixed|void
      */
-    function select()
+    function save()
     {
-        // TODO: Implement select() method.
+        try {
+            $con = Connection::connect();
+        } catch (\Exception $e) {
+
+        }
     }
 
     /**
      * @return mixed|void
      */
-    function update()
+    function find()
     {
-        // TODO: Implement update() method.
     }
 
     /**
      * @return mixed|void
      */
-    function delete()
+    function updateData()
     {
-        // TODO: Implement delete() method.
+    }
+
+    /**
+     * @return mixed|void
+     */
+    function deleteData()
+    {
+    }
+
+    /**
+     * @param $sql
+     * @return mixed|void
+     */
+    function sql($sql)
+    {
     }
 }

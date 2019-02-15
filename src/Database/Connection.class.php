@@ -1,5 +1,7 @@
 <?php
 
+namespace Kernel\Database;
+
 /**
  * Class Connection
  */
@@ -12,8 +14,8 @@ class Connection
     ];
 
     /**
-     * Connection constructor.
-     * @throws Exception
+     * @return null|\PDO
+     * @throws \Exception
      */
     public static function connect()
     {
@@ -35,19 +37,19 @@ class Connection
     }
 
     /**
+     * Fechar connexão
+     */
+    public static function closeConnection()
+    {
+        self::$instance = null;
+    }
+
+    /**
      * @return array|bool
      */
     private static function getAccess()
     {
         $result = parse_ini_file(__DIR__ . '/../Config/Database.ini');
         return $result;
-    }
-
-    /**
-     * Fechar connexão
-     */
-    public static function closeConnection()
-    {
-        self::$instance = null;
     }
 }

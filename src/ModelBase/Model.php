@@ -2,17 +2,13 @@
 
 namespace Kernel\ModelBase;
 
+use Kernel\ModelBase\Controller;
+
 /**
  * Class Model
  */
-abstract class Model
+abstract class Model extends Controller
 {
-    /**
-     * Model constructor.
-     */
-    public function __construct()
-    {
-    }
 
     /**
      * @param callable $fn
