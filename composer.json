@@ -7,5 +7,11 @@
             "email": "giovani.cassiano99@hotmail.com"
         }
     ],
+    "autoload-dev": {
+        "psr-4" : {
+            "App\\" : "App/",
+            "Kernel\\" : "src/"
+        }
+    },
     "require": {}
 }
