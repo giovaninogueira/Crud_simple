@@ -24,6 +24,7 @@ abstract class Model
 
     /**
      * @param $obj
+     * @return $this
      * @throws \ReflectionException
      */
     public function setObj($obj)
@@ -44,6 +45,7 @@ abstract class Model
                 $this->{$name} = $vl;
             }
         }
+        return $this;
     }
 
     /**

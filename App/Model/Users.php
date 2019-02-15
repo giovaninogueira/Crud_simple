@@ -4,6 +4,10 @@ namespace App\Model;
 
 use Kernel\ModelBase\Model;
 
+/**
+ * Class Users
+ * @package App\Model
+ */
 class Users extends Model
 {
     protected $id;
@@ -11,6 +15,9 @@ class Users extends Model
     protected $email;
     protected static $cep;
 
+    /**
+     * Users constructor.
+     */
     public function __construct()
     {
     }

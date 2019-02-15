@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
+use App\Model\Users;
+use Kernel\ModelBase\Controller;
+
 /**
  * Class UsersController
  * @package App\Controller
  */
-class UsersController
+class UsersController extends Users
 {
     /**
      * UsersController constructor.
